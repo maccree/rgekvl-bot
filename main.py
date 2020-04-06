@@ -10,3 +10,9 @@ class MyClient(discord.Client):
             channel = self.get_channel(payload.channel_id)
             message = await channel.fetch_message(payload.message_id)
             member = utils.get(message.guild.members, id=payload.user_id)
+            try:
+                emoji = str(payload.emoji)
+                role = utils.get(message.guild.roles, id=config.ROLES[emoji])
+                if(len([i for i in member.roles if i.id not in config.EXCROLES]) <= config.MAX_ROLES_PER_USER):
+                    await member.add_roles(role)
+                    print('[SUCCESS] User {0.display_name} has been granted with role {1.name}'.format(member, role))
