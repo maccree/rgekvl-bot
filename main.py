@@ -16,3 +16,6 @@ class MyClient(discord.Client):
                 if(len([i for i in member.roles if i.id not in config.EXCROLES]) <= config.MAX_ROLES_PER_USER):
                     await member.add_roles(role)
                     print('[SUCCESS] User {0.display_name} has been granted with role {1.name}'.format(member, role))
+                else:
+                    await message.remove_reaction(payload.emoji, member)
+                    print('[ERROR] Too many roles for user {0.display_name}'.format(member))
