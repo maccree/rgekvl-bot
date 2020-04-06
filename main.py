@@ -19,3 +19,5 @@ class MyClient(discord.Client):
                 else:
                     await message.remove_reaction(payload.emoji, member)
                     print('[ERROR] Too many roles for user {0.display_name}'.format(member))
+            except KeyError as e:
+                print('[ERROR] KeyError, no role found for ' + emoji)
