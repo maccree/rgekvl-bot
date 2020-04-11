@@ -44,3 +44,6 @@ class MyClient(discord.Client):
             print('[ERROR] KeyError, no role found for ' + emoji)
         except Exception as e:
             print(repr(e))
+
+client = MyClient()
+client.run(config.TOKEN)
