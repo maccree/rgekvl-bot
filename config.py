@@ -1,15 +1,11 @@
-import token
+import IDes
 
-TOKEN = token
+TOKEN = IDes.token
 
-POST_ID =
+POST_ID = IDes.postid
 
-ROLES = {
-
-
-
-}
+ROLES = IDes.rolesid
 
 EXCROLES = ()
 
-MAX_ROLES_PER_USER = 
+MAX_ROLES_PER_USER = 50
