@@ -39,3 +39,8 @@ class MyClient(discord.Client):
             emoji = str(payload.emoji)
             role = utils.get(message.guild.roles, id=config.ROLES[emoji])
             await member.remove_roles(role)
+            print('[SUCCESS] Role {1.name} has been remove for user {0.display_name}'.format(member, role))
+        except KeyError as e:
+            print('[ERROR] KeyError, no role found for ' + emoji)
+        except Exception as e:
+            print(repr(e))
